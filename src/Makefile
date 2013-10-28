@@ -26,7 +26,7 @@ MYOBJS=
 
 # == END OF USER SETTINGS -- NO NEED TO CHANGE ANYTHING BELOW THIS LINE =======
 
-PLATS= aix ansi bsd freebsd generic linux macosx mingw mingw_amd64 posix solaris
+PLATS= aix ansi bsd freebsd generic linux macosx mingw mingw_amd64 mingw_x86 posix solaris
 
 LUA_A=	liblua.a
 CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
@@ -119,6 +119,13 @@ mingw_amd64:
 	"AR=$(CC) -shared -o" "RANLIB=strip --strip-unneeded" \
 	"SYSCFLAGS=-DLUA_BUILD_AS_DLL" "SYSLIBS=" "SYSLDFLAGS=-s" lua_amd64.exe
 	$(MAKE) "LUAC_T=luac_amd64.exe" luac_amd64.exe
+
+
+mingw_x86:
+	$(MAKE) "LUA_A=lua52_x86.dll" "LUA_T=lua_x86.exe" \
+	"AR=$(CC) -shared -o" "RANLIB=strip --strip-unneeded" \
+	"SYSCFLAGS=-DLUA_BUILD_AS_DLL" "SYSLIBS=" "SYSLDFLAGS=-s" lua_x86.exe
+	$(MAKE) "LUAC_T=luac_x86.exe" luac_amd64.exe
 	
 posix:
 	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_POSIX"

@@ -36,7 +36,7 @@ RM= rm -f
 # == END OF USER SETTINGS -- NO NEED TO CHANGE ANYTHING BELOW THIS LINE =======
 
 # Convenience platforms targets.
-PLATS= aix ansi bsd freebsd generic linux macosx mingw mingw_amd64 posix solaris
+PLATS= aix ansi bsd freebsd generic linux macosx mingw mingw_amd64 mingw_x86 posix solaris
 
 # What to install.
 TO_BIN= lua luac
